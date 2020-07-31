@@ -13,7 +13,7 @@ import java.net.URL;
  * @author: LiuJiaQi
  * @create: 2020-07-31 10:02
  **/
-public class TestThread2 extends Thread {
+public class TestThread2 implements Runnable {
     private String url; //网络图片地址
     private String name; //保存的文件名
 
@@ -31,13 +31,14 @@ public class TestThread2 extends Thread {
     }
 
     public static void main(String[] args) {
+
         TestThread2 t1 = new TestThread2("https://upload-images.jianshu.io/upload_images/9070317-667ffcc6ed135166.JPEG?imageMogr2/auto-orient/strip|imageView2/2", "1.jpg");
         TestThread2 t2 = new TestThread2("https://upload-images.jianshu.io/upload_images/7190121-750d12d141de3e5c.JPEG?imageMogr2/auto-orient/strip|imageView2/2/w/640", "2.jpg");
         TestThread2 t3 = new TestThread2("https://upload-images.jianshu.io/upload_images/9070317-667ffcc6ed135166.JPEG?imageMogr2/auto-orient/strip|imageView2/2", "3.jpg");
 
-        t1.start();
-        t2.start();
-        t3.start();
+        new Thread(t1).start();
+        new Thread(t2).start();
+        new Thread(t3).start();
     }
 }
 
