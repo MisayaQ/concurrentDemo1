@@ -14,3 +14,11 @@ gen
 3.jpg
 concurrentDemo1.iml
 out/
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
