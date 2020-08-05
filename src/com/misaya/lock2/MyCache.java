@@ -24,4 +24,17 @@ public class MyCache {
         Object result = map.get(key);
         System.out.println(Thread.currentThread().getName()+"读取完成"+result);
     }
+
+    public static void main(String[] args) {
+        MyCache myCache = new MyCache();
+        for (int i = 0; i < 5; i++) {
+            final Integer temp = i;
+            new Thread(() -> myCache.put(temp+"", temp),temp +"号线程").start();
+        }
+
+        for (int i=0; i<5; i++){
+            final Integer temp = i;
+            new Thread(() -> myCache.get(temp+""),temp +"号线程").start();
+        }
+    }
 }
