@@ -53,14 +53,13 @@ class Drawing extends Thread {
     //synchronized 默认锁是this
     @Override
     public void run() {
-        //锁的对象是变化的两 需要增删改
+        //锁的对象是变化的量 需要增删改
         synchronized (account) {
             //判断有没有钱
             if (account.money - drawingMoney < 0) {
                 System.out.println(Thread.currentThread().getName() + "钱不够了，取不了");
                 return;
             }
-
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
